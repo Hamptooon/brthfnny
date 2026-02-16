@@ -1,0 +1,197 @@
+/* ===== РУЛЕТКА ===== */
+.chanceHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+.chanceWrapper {
+  position: relative;
+  width: 202px;
+  height: 202px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Тёмный фон круга */
+.donutBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1e1e1e;
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Стрелка в центре */
+
+.outerArrow {
+  position: absolute;
+  top: -35;
+  left: 90;
+
+  font-size: 32px;
+  color: white;
+  z-index: 20;
+
+  /* смещаем вверх за предел круга */
+  transform: translate(-50%, -110px);
+
+  transform-origin: center 135px;
+
+  transition: transform 4s cubic-bezier(0.12, 0.8, 0.18, 1);
+}
+
+
+/* Центральный блок с одометром */
+.chancePreview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 15;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(2px);
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  min-width: 110px;
+}
+
+.odometer {
+  font-family: 'Courier New', monospace;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.7);
+  letter-spacing: 2px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.digit {
+  display: inline-block;
+  width: 0.8em;
+  text-align: center;
+}
+
+.separator {
+  display: inline-block;
+  margin: 0 2px;
+  color: white;
+  font-weight: 600;
+}
+
+.chanceLabel {
+  margin: 6px 0 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 0 5px black;
+  letter-spacing: 2px;
+}
+.fillCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+
+/* Кнопка ПРОКАЧАТЬ */
+.upgradeButtonWrapper {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.upgradeButton {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  border: none;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  padding: 0 32px;
+  height: 46px;
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(255,126,95,0.6);
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.upgradeButton:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 30px rgba(255,126,95,0.9);
+}
+
+.upgradeButton:disabled {
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Сообщение о выигрыше */
+.prizeMessage {
+  margin-top: 16px;
+  padding: 8px 24px;
+  background: rgba(255,215,0,0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 40px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,215,0,0.7);
+  animation: pulse 1.8s infinite;
+  box-shadow: 0 0 15px rgba(255,215,0,0.3);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 0.9; transform: scale(1); }
+}
+
+.wheelWrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin-top: 20px;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 4s cubic-bezier(0.12, 0.8, 0.18, 1);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  color: white;
+  z-index: 10;
+  text-shadow: 0 0 10px black;
+}
+
+.sector {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+}
