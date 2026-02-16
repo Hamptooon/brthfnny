@@ -46,7 +46,7 @@ export function BirthdaySurprise() {
   // Проверка даты: сегодня 17 февраля?
   const isBirthdayDate = () => {
     const today = new Date();
-    return today.getMonth() === 1 && today.getDate() === 16; // февраль = 1
+    return today.getMonth() === 1 && (today.getDate() === 16 || today.getDate() === 17|| today.getDate() === 18); // февраль = 1
   };
 
   useEffect(() => {
