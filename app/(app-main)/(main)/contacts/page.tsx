@@ -36,7 +36,7 @@ export default function LearnPage() {
 
         {/* Видеофон на весь экран */}
         <video autoPlay loop muted playsInline className={classes.videoBackground}>
-          <source src="/back.webm" type="video/webm" />
+          <source src="/021688888.mp4" type="video/mp4" />
         </video>
         {/* Затемняющий оверлей для читаемости текста */}
         <div className={classes.overlay} />
